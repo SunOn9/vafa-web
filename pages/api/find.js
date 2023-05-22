@@ -7,9 +7,8 @@ export default async (req, res) => {
     const client = await connectToDatabase();
     const db = client.db('test');
     
-    const result = await db.collection('user').findOne({
-        query
-    });
+    const result = await db.collection('user')
+        .findOne({query});
 
     res.status(200).json(result)
 };

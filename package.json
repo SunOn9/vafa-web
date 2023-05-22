@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "es6-promise": "^4.2.8",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "mongodb": "^5.5.0",

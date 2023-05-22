@@ -20,7 +20,7 @@ export default function Chat(props){
         router.push({
             pathname: '/history',
             query: { id: currentId }
-        })
+        }, '/history')
     }
 
     const handleSubmit = async (event) => {

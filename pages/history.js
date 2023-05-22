@@ -17,35 +17,49 @@ export default function History(props){
         event.preventDefault();
 
         const query = {id : userId}
-
+        console.log(query)
         const response = await fetch("/api/findAll", {
             method: "POST",
             headers: {
             "Content-Type": "application/json"
             },
             body: JSON.stringify(query)
-        })
-            .then((response) => response.json())
-            .then((user) => {
-                return user.address;
-            });
+        });
+        
         const historyData = response.json()
-        historyData.map((data) => (
-            console.log(data)
-        ))
-        setHistory(historyData)
+        historyData.then(function(result) {
+            setHistory(result)
+        });
     }
 
 return(
     <Layout isloged >
-        <button type="submit" onClick={handle}> Load History </button>
+        <button className={styles.button} type="submit" onClick={handle}> Load History </button>
         <div className={styles.main}>
-            {history.length > 0 &&
-                    history.map((data) => (
-                        // eslint-disable-next-line react/jsx-key
-                        <p>{data}</p>
-                    ))
-            }
+        {history.length > 0 &&
+                history.map((each) => (
+                    // eslint-disable-next-line react/jsx-key
+                    <div className={styles.completion}>
+                        <p>{each.createdAt}</p>
+                        <div className={styles.question}>
+                            <p>{each.question}</p>
+                        </div>
+                        <div className={styles.response}>
+                            <p>
+                                {each.value.split('\n').map(function( item) {
+                                        return (
+                                            <>
+                                            {item}
+                                            <br/>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </p>
+
+                        </div>
+                    </div>
+                ))}
         </div>
     </Layout>
 )}

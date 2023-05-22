@@ -1,0 +1,45 @@
+To use Promises to show pages with Next.js, you can follow these steps:
+
+1. Import the Promise library in your Next.js component or page:
+
+```
+import { Promise } from 'es6-promise';
+```
+
+2. Create a Promise to fetch data from an external source:
+
+```
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    // Your fetch request goes here
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch((error) => reject(error));
+  });
+};
+```
+
+3. Use the Promise to retrieve the data and render it in your Next.js component or page:
+
+```
+const MyComponent = ({ data }) => {
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
+    </div>
+  );
+};
+
+MyComponent.getInitialProps = async () => {
+  const data = await fetchData();
+  return { data };
+};
+
+export default MyComponent;
+```
+
+In the above code, the `getInitialProps` method uses the `fetchData` Promise to retrieve the data, which is then passed as a prop to the `MyComponent` component. This ensures that the data is available before the component is rendered, preventing any errors or delays.
+
+Note that using Promises in Next.js is only necessary when fetching data from external sources. For simple state management and rendering, you can use the built-in React hooks and functions.

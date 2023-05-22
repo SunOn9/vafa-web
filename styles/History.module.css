@@ -1,0 +1,35 @@
+.main{
+    padding-right: 15rem;
+    padding-left: 15rem;
+    max-height: 70vh;
+    
+}
+.question{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+}
+.question > p, .response > p{
+    background-color: #404040;
+    max-width: 80vh;
+    color: #ccc;
+    padding: 20px;
+    border-radius: 1rem;
+}
+.question > p{
+    background-color: blue;
+}
+.response{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+.question{
+    padding: 5px 5px;
+}
+
+.response{
+    padding: 5px 5px;
+}

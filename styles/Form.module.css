@@ -1,0 +1,44 @@
+.main{
+  padding-top: 15vh;
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+  padding: 14px 20px;
+}
+
+.input{
+  display: flex;
+  flex-flow: column;
+}
+
+.input > input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+.bottom{
+  display: grid;
+}
+
+.button {
+  background-color: #ccc;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.link{
+  color: lightseagreen;
+}

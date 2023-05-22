@@ -44,6 +44,6 @@
     cursor: pointer;
     border-radius: 1rem;
 }
-.completion{
-    
+.completion > p{
+    text-align: center;
 }

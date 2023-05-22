@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import {useEffect} from "react"
 import styles from "../styles/History.module.css"
+import moment from 'moment-timezone';
 
 export default function History(props){
     const [history, setHistory] = useState([])
@@ -40,7 +41,7 @@ return(
                 history.map((each) => (
                     // eslint-disable-next-line react/jsx-key
                     <div className={styles.completion}>
-                        <p>{each.createdAt}</p>
+                        <p>{moment(each.createdAt).format('YYYY-MM-DDTHH:mm:ssZ')}</p>
                         <div className={styles.question}>
                             <p>{each.question}</p>
                         </div>
